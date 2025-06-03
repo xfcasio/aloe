@@ -4,7 +4,7 @@ use std::sync::atomic::{AtomicUsize, Ordering};
 pub struct AloeAllocator(System, AtomicUsize);
 
 #[global_allocator]
-static GLOBAL: AloeAllocator = AloeAllocator(System, AtomicUsize::new(0));
+static GLOBAL: AloeAllocator = AloeAllocator(pub System, pub AtomicUsize::new(0));
 
 use printf as aloe_c_printf;
 extern "C" {
