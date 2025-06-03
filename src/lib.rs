@@ -1,7 +1,7 @@
 use std::alloc::{GlobalAlloc, System, Layout};
 use std::sync::atomic::{AtomicUsize, Ordering};
 
-struct AloeAllocator(System, AtomicUsize);
+pub struct AloeAllocator(System, AtomicUsize);
 
 #[global_allocator]
 static GLOBAL: AloeAllocator = AloeAllocator(System, AtomicUsize::new(0));
